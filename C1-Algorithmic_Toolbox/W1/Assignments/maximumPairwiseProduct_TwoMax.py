@@ -8,10 +8,10 @@ def maximumPairwiseProduct(nums):
             max1_index = i
     
     max2_index = 0
-    if max1_index == 1:
-        max2_index = 2
+    if max1_index == 0:
+        max2_index = 1
     else:
-        max1_index = 1
+        max2_index = 0
 
     for j in range(n):
         if (nums[j]> nums[max2_index] and j != max1_index):
