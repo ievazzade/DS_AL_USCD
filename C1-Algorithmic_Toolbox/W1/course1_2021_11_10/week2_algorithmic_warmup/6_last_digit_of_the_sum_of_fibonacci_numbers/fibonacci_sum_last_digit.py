@@ -3,7 +3,7 @@ import sys
 import math
 
 def fibonacci_sum(n):
-    n = n+2
+    n = ((n+2)%60)
     if n <= 1:
         return n
 
@@ -14,7 +14,7 @@ def fibonacci_sum(n):
         previous, current = current, (previous + current)%10
 
 
-    return current-1
+    return current%10-1
 
 
 if __name__ == '__main__':
