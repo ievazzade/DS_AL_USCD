@@ -1,7 +1,7 @@
 # Uses python3
 import sys
 
-def get_fibonacci_huge_naive(n, m):
+def get_fibonacci(n, m):
     if n <= 1:
         return n
 
@@ -13,7 +13,23 @@ def get_fibonacci_huge_naive(n, m):
 
     return current % m
 
+def pisanoPeriod(m):
+    previous, current = 0, 1
+    for i in range(0, m * m):
+        previous, current \
+        = current, (previous + current) % m
+        
+         
+        # A Pisano Period starts with 01
+        if (previous == 0 and current == 1):
+            return i + 1
+
+def get_fibonacci_huge(n, m):
+    pP = pisanoPeriod(m)
+    return get_fibonacci(n%(pP), m)
+
 if __name__ == '__main__':
-    input = sys.stdin.read();
-    n, m = map(int, input.split())
-    print(get_fibonacci_huge_naive(n, m))
+    input_n = input();
+    n, m = map(int, input_n.split())
+    print(get_fibonacci_huge(n, m))
+
